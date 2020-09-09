@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'duimazlab0'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fd6d7274a0a54dfcb28893fea376939c }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c07cdb45431042a9a73e4e4f3102ab6c }}
