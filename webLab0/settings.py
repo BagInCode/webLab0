@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '!8$yt8jrz1n1r8ak8swz42gyo8ii9q0q8e#8dq*-^z)2%e&p5&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://weblab0.azurewebsites.net/',
+ALLOWED_HOSTS = ['https://weblab0.azurewebsites.net',
                  '127.0.0.1']
 
 
