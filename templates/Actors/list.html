@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+ Actors Title
+{% endblock %}
+{% block content %}
+ {% if ActorsList %}
+     {% for actor in ActorsList %}
+         <p>{{ actor.Name }}</p>
+     {% endfor %}
+ {% elif FilmList %}
+     {% for film in FilmList %}
+         <p>{{ film.Name }}</p>
+     {% endfor %}
+ {% else %}
+     Nothing to show
+ {% endif %}
+{% endblock %}
