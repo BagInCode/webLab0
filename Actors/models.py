@@ -2,20 +2,20 @@ from django.db import models
 
 
 class Film(models.Model):
-    Name = models.CharField('FilmName', max_length=100)
-    Year = models.IntegerField('YearOfCreation', )
-    Poster = models.ImageField(upload_to='Films')
+    filmName = models.CharField('FilmName', max_length=200)
+    filmYear = models.IntegerField('YearOfCreation')
+    filmPoster = models.ImageField(upload_to='Films')
 
     def __str__(self):
-        return self.Name
+        return self.filmName
 
 
 class Actor(models.Model):
-    Name = models.CharField('ActorName', max_length=100),
-    Year = models.IntegerField('YearOfBirth')
+    actorName = models.CharField('ActorName', max_length=200, default='default_name')
+    actorYear = models.IntegerField('YearOfBirth')
 
     def __str__(self):
-        return self.Name
+        return self.actorName
 
 
 class FilmActor(models.Model):

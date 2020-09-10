@@ -5,7 +5,7 @@
 {% block content %}
  {% if ActorsList %}
      {% for actor in ActorsList %}
-         <p>{{ actor.Name }}</p>
+         <p>{{ actor.id }} {{ actor.Name }} {{ actor.Year }}</p>
      {% endfor %}
  {% elif FilmList %}
      {% for film in FilmList %}
