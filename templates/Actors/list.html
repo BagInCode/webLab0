@@ -4,12 +4,18 @@
 {% endblock %}
 {% block content %}
  {% if ActorsList %}
+     <ui>
+
      {% for actor in ActorsList %}
-         <p>{{ actor.id }} {{ actor.Name }} {{ actor.Year }}</p>
+         <li>{{ actor.id }} {{ actor.actorName }} {{ actor.actorYear }}</li>
      {% endfor %}
+     </ui>
  {% elif FilmList %}
      {% for film in FilmList %}
-         <p>{{ film.Name }}</p>
+         {% if film.filmPoster %}
+         <img src="{{MEDIA_URL}}{{ film.filmPoster.url}}"/>
+         {% endif %}
+         <p>{{ film.filmName }}</p>
      {% endfor %}
  {% else %}
      Nothing to show

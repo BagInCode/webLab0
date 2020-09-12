@@ -10,5 +10,5 @@ def indexActor(request):
 
 def indexFilms(request):
     FilmList = Film.objects.order_by('-id')[:10]
-    return render(request, 'Actors/list.html', {'ActorsList': FilmList})
+    return render(request, 'Actors/list.html', {'FilmList': FilmList})
 

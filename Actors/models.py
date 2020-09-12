@@ -4,10 +4,14 @@ from django.db import models
 class Film(models.Model):
     filmName = models.CharField('FilmName', max_length=200)
     filmYear = models.IntegerField('YearOfCreation')
-    filmPoster = models.ImageField(upload_to='Films')
+    filmPoster = models.ImageField(null=True, blank=True, upload_to="images/", verbose_name='Изображение')
 
     def __str__(self):
         return self.filmName
+
+    class Meta:
+        verbose_name = 'Фильм'
+        verbose_name_plural = 'Фильмы'
 
 
 class Actor(models.Model):
@@ -16,6 +20,10 @@ class Actor(models.Model):
 
     def __str__(self):
         return self.actorName
+
+    class Meta:
+        verbose_name = 'Актер'
+        verbose_name_plural = 'Актеры'
 
 
 class FilmActor(models.Model):
