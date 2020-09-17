@@ -27,7 +27,7 @@ SECRET_KEY = '!8$yt8jrz1n1r8ak8swz42gyo8ii9q0q8e#8dq*-^z)2%e&p5&'
 DEBUG = True
 
 ALLOWED_HOSTS = ['https://weblab0.azurewebsites.net',
-                 '127.0.0.1']
+                 '127.0.0.1', '172.16.6.2:2222']
 
 
 # Application definition
@@ -79,16 +79,9 @@ WSGI_APPLICATION = 'webLab0.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'duimaz',
-        'USER': 'odmen',
-        'PASSWORD': 'Adm1nadm1n',
-        'HOST': 'duimaz.database.windows.net',
-        'PORT': '',
-        'OPTIONS': {
-            'driver': 'ODBC Driver 13 for SQL Server',
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
