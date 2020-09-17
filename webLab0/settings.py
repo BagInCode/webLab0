@@ -79,9 +79,16 @@ WSGI_APPLICATION = 'webLab0.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'duimaz',
+        'USER': 'odmen',
+        'PASSWORD': 'Adm1nadm1n',
+        'HOST': 'duimaz.database.windows.net',
+        'PORT': '',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 13 for SQL Server',
+        },
+    },
 }
 
 
