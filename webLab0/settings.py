@@ -27,7 +27,7 @@ SECRET_KEY = '!8$yt8jrz1n1r8ak8swz42gyo8ii9q0q8e#8dq*-^z)2%e&p5&'
 DEBUG = True
 
 ALLOWED_HOSTS = ['https://weblab0.azurewebsites.net',
-                 '127.0.0.1', '172.16.6.2:2222']
+                 '127.0.0.1', '172.16.6.2:2222', 'localhost:8000']
 
 
 # Application definition
