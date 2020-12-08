@@ -11,21 +11,23 @@
      {% endfor %}
      </ui>
  {% elif FilmList %}
-     <table border="1 px black solid">
-         {% for film in FilmList %}
-             <tr>
-                <td rowspan="2">
-                    {% if film.filmPoster %}
-                    <img src="{{ film.filmPoster.url}}" height="400" />
-                    {% endif %}
-                </td>
-                 <td height="50" width="700"><b>{{ film.filmName }} </b> ({{ film.filmYear }})</td>
-            </tr>
-            <tr>
-                <td><l> film.description</l></td>
-            </tr>
-         {% endfor %}
-     </table>
+    <div>
+        <table class="table table-bordered">
+            {% for film in FilmList %}
+                <tr>
+                    <td rowspan="2">
+                        {% if film.filmPoster %}
+                        <img src="{{ film.filmPoster.url}}" height="400" />
+                        {% endif %}
+                    </td>
+                     <td height="50" width="700"><b>{{ film.filmName }} </b> ({{ film.filmYear }})</td>
+                </tr>
+                <tr>
+                    <td><l> film.description</l></td>
+                </tr>
+            {% endfor %}
+        </table>
+     </div>
  {% else %}
      Nothing to show
  {% endif %}
