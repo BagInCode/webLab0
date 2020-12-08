@@ -5,35 +5,19 @@
 {% block content %}
  {% if ActorsList %}
      <ui>
-
      {% for actor in ActorsList %}
          <li>{{ actor.id }} {{ actor.actorName }} {{ actor.actorYear }}</li>
      {% endfor %}
      </ui>
  {% elif FilmList %}
     <div>
-
-            {% for film in FilmList %}
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-">
-                            <h4>{{ film.filmName }}  ({{ film.filmYear }}) </h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-auto">
-                            {% if film.filmPoster %}
-                            <img src="{{ film.filmPoster.url}}" height="400" />
-                            {% endif %}
-                        </div>
-                        <div class="col-auto">
-                            film description
-                        </div>
-                    </div>
+        {% for film in FilmList %}
+            <div class="container">
+                <div class="list-group">
+                    <a href="/films/details/{{ film.id }}" class="list-group-item list-group-item-action">{{ film.filmName }}  ({{ film.filmYear }})</a>
                 </div>
-
-            {% endfor %}
-
+            </div>
+        {% endfor %}
      </div>
  {% else %}
      Nothing to show

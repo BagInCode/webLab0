@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+ Film Details
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="2" align="center">
+                    <h3>{{ film.filmName }}</h3>
+                </td>
+            </tr>
+            <tr>
+                <td width="425" height="625 ">
+                    <img src="{{ film.filmPoster.url }}" width="400" height="600">
+                </td>
+                <td class="align-top">
+                    <p class="align-text-top">FilmDescTemp</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
