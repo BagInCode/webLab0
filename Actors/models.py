@@ -5,6 +5,7 @@ class Film(models.Model):
     filmName = models.CharField('FilmName', max_length=200)
     filmYear = models.IntegerField('YearOfCreation')
     filmPoster = models.ImageField(null=True, blank=True, upload_to="images/", verbose_name='Изображение')
+    filmDesc = models.CharField('FilmDesc', max_length=500)
 
     def __str__(self):
         return self.filmName

@@ -6,7 +6,11 @@
  {% if ActorsList %}
      <ui>
      {% for actor in ActorsList %}
-         <li>{{ actor.id }} {{ actor.actorName }} {{ actor.actorYear }}</li>
+         <div class="container">
+                <div class="list-group">
+                    <li class="list-group-item list-group-item-action">{{ actor.actorName }}  ({{ actor.actorYear }})</li>
+                </div>
+            </div>
      {% endfor %}
      </ui>
  {% elif FilmList %}
