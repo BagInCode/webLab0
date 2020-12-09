@@ -1,29 +1,79 @@
 {% extends 'base.html' %}
 {% block title %}
- Actors Title
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            let content = [];
+            {% if FilmList %}
+                {% for actor in FilmList %}
+               content.push("{{ actor.filmName }} ({{ actor.filmYear }})")
+                {% endfor %}
+                content.reverse();
+            {% endif %}
+            $("#sports").select2(
+                {
+                    data: content,
+                }
+            );
+        });
+        $('#sports').on("select2-selecting", function(e) {
+  console.log('Selecting');
+});
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous"></script>
+
+<title> Actors Title</title>
 {% endblock %}
 {% block content %}
  {% if ActorsList %}
      <ui>
+
+
      {% for actor in ActorsList %}
          <div class="container">
                 <div class="list-group">
-                    <li class="list-group-item list-group-item-action">{{ actor.actorName }}  ({{ actor.actorYear }})</li>
+                    <li class="list-group-item list-group-item-action" style="margin-top: 5px">{{ actor.actorName }}  ({{ actor.actorYear }})</li>
                 </div>
             </div>
      {% endfor %}
      </ui>
  {% elif FilmList %}
-    <div>
+     <div class="container">
+     <div class="row">
+         <div class="list-group btn btn-default col-sm-8">
+            <select id="sports">
+                <option value="" selected hidden>-- Select --</option>
+            </select>
+         </div>
+         <div class="list-group col-sm-4 btn btn-default">
+            <button id="bunt" class="button btn-primary" value="Search" onclick="{
+                var e = document.getElementById('sports');
+                var strUser = e.selectedIndex;
+                //console.log(strUser);
+                if (strUser != 0)
+                    window.location.href = '/films/details/'+strUser;
+
+            }">Go to
+            </button>
+         </div>
+     </div>
+
+    <div class="row">
         {% for film in FilmList %}
-            <div class="container">
-                <div class="list-group">
+                <div class="list-group" style="margin-bottom: 5px">
                     <a href="/films/details/{{ film.id }}" class="list-group-item list-group-item-action">{{ film.filmName }}  ({{ film.filmYear }})</a>
                 </div>
-            </div>
+
         {% endfor %}
+     </div>
      </div>
  {% else %}
      Nothing to show
  {% endif %}
 {% endblock %}
+
+
+

@@ -5,41 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" ref="{% static 'css/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>{% block title %} WebLab0 {% endblock %}</title>
+
+    {% block title %} WebLab0 {% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="{{ BASE_DIR }}/home/" style="margin-left: 10px"><h3>WebLab0</h3></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="{{ BASE_DIR }}/" style="margin-left: 10px"><h2>WebLab0</h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="{{ BASE_DIR }}/home/"><h3>Home</h3></a>
-                <a class="nav-item nav-link active" href="{{ BASE_DIR }}/films/"><h3>Films</h3></a>
-                <a class="nav-item nav-link active" href="{{ BASE_DIR }}/actors/"><h3>Actors</h3></a>
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link " href="{{ BASE_DIR }}/"><h3>Home</h3></a>
+                <a class="nav-item nav-link " href="{{ BASE_DIR }}/films/"><h3>Films</h3></a>
+                <a class="nav-item nav-link " href="{{ BASE_DIR }}/actors/"><h3>Actors</h3></a>
             </div>
+
         </div>
+        <form class="form-text col-2 my-2 my-lg-0">
+            {% if user.is_active %}
+                <p class="navbar-brand my-2 my-sm-0" >Welcome, {{ user.username }}</p>
+                <a href="/accounts/logout" class="btn btn-outline-light" type="button">Sign Out</a>
+            {% else %}
+                <a href="/accounts/login" class="btn btn-outline-light my-2 my-sm-0" type="button">Sign In</a>
+                <a href="/accounts/signup" class="btn btn-outline-light my-2 my-sm-0" type="button">Sign Up</a>
+            {% endif %}
+        </form>
     </nav>
+
+
     {% block content %}
         Nothing to show
     {% endblock %}
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <br>
-        <div class="col-xl-0 text-center navbar-brand">
-        <h6 class="text-uppercase font-weight-bold">Contact us</h6>
-
-            <i class="fas fa-home mr-3"></i> Ukraine, Kyiv 73000, KNY named by Shevchenko
-            <i class="fas fa-phone mr-3"></i> + 380-66-821-84-41
-            <i class="fas fa-envelope mr-3"></i> duilovskyii@gmail.com
-            <i class="fas fa-print mr-3"></i> + 380-98-553-5761
-        </div>
-        <div class="text-center py-3 col-xl-2 navbar-brand">© 2020 Copyright:
-            <a href="https://github.com/BagInCode/webLab0/">BagInCode</a>
+    <nav class="navbar  navbar-expand-lg navbar-dark bg-info"    >
+    <div class="col-sm-9"></div>
+        <div class="py-3 col-sm-auto navbar-brand">© 2020 Copyright:
+            <a href="https://github.com/BagInCode/webLab0/" class="nav-item navbar-brand active">BagInCodeTeam</a>
         </div>
     </nav>
 </body>
