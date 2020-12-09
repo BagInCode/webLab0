@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
 
 from .models import Actor, Film
 
@@ -24,4 +27,4 @@ def indexHome(request):
 
 def get_actor_id(request, actor_id):
     film = Actor.objects.get(id=actor_id)
-    return render(request, "Actors/ActorDetails.html", {'Actor': film})
+    return render(request, "Actors/page.html", {'Actor': film})
